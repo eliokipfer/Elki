@@ -1,0 +1,10 @@
+{
+  "name": "NOVA Budget",
+  "short_name": "NOVA",
+  "lang": "de-CH",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080d18",
+  "theme_color": "#080d18",
+  "description": "Persönliche Budget-App auf Deutsch und CHF."
+}
