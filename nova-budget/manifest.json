@@ -1,0 +1,9 @@
+{
+  "name": "NOVA Budget",
+  "short_name": "NOVA",
+  "lang": "de-CH",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080c16",
+  "theme_color": "#090d18"
+}
