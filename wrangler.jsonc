@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schema高.cloudflare.com/wrangler/config-schema.json",
+  "$schema": "https://json.schemastore.org/wrangler",
   "name": "elki",
   "main": "./worker.js",
   "compatibility_date": "2026-11-17",
