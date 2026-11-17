@@ -46,4 +46,4 @@ $("restore").onchange=async e=>{try{let x=JSON.parse(await e.target.files[0].tex
 $("csv").onclick=()=>{let lines=[["Datum","Typ","Beschreibung","Kategorie","Betrag","Währung"],...list().map(t=>[t.date,t.type,t.desc,t.cat,t.amount,d.currency])],csv="\ufeff"+lines.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(";")).join("\n"),a=document.createElement("a"),u=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.href=u;a.download="nova-budget-"+key()+".csv";a.click();URL.revokeObjectURL(u)};
 $("clear").onclick=()=>{if(confirm("Alle lokalen App-Daten löschen?")){d=fresh();save();render()}};
 render();
-</script></body></html>
+</script><script>if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script></body></html>
