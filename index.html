@@ -24,16 +24,80 @@ button,.btn,label.btn{min-height:42px;touch-action:manipulation}
 }
 @media(max-width:420px){.app{padding-left:10px;padding-right:10px}.top{margin-left:-10px;margin-right:-10px;padding-left:10px;padding-right:10px}.stat strong{font-size:17px}.formgrid{grid-template-columns:1fr}.panel{padding:13px}.chart{height:205px}}
 @media(display-mode:standalone){.app{padding-top:calc(10px + env(safe-area-inset-top))}}
+
+/* NOVA 2.0 visual redesign */
+:root{color-scheme:light;--bg:#f4f6fa;--glass:#fff;--line:#e7ebf2;--txt:#182230;--muted:#718096;--blue:#315efb;--mint:#16a085;--red:#d94b62}
+*{box-sizing:border-box}
+body{background:#f4f6fa;color:var(--txt);font:14px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.app{max-width:1320px;padding:28px 32px}
+.top{margin-bottom:28px;padding:0 0 20px;border-bottom:1px solid #e6eaf0}
+.brand{font-size:19px;letter-spacing:-.045em;color:#15233b}.brand i{color:var(--blue)}
+.glass{background:#fff;border:1px solid #e8edf4;border-radius:18px;box-shadow:0 5px 22px rgba(27,43,70,.045);backdrop-filter:none}
+.btn,button,select,input,textarea{font:inherit}
+.btn{background:#fff;color:#263449;border:1px solid #dfe5ee;padding:10px 15px;border-radius:11px;font-weight:650;transition:.18s}
+.btn:hover{border-color:#b9c8e8;background:#f8faff}
+.primary{background:#315efb;color:white;border:1px solid #315efb;box-shadow:0 5px 12px #315efb26}
+.primary:hover{background:#244fe4;color:#fff}
+.month button{color:#53627a;background:#fff;border:1px solid #e3e8f0;border-radius:10px;width:36px;height:36px}
+#month{font-size:14px;min-width:145px;text-align:center;color:#29364a}
+.layout{grid-template-columns:220px minmax(0,1fr);gap:24px}
+.side{padding:10px;border-radius:16px;top:20px}
+.side button{padding:12px 14px;margin:3px 0;color:#66758b;font-weight:600;border-radius:10px}
+.side button.active,.side button:hover{background:#eef2ff;color:#315efb}
+.head{margin:6px 0 23px}
+.eyebrow{color:#315efb;font-size:11px;letter-spacing:.12em}
+h1{font-size:32px;letter-spacing:-.045em;color:#17243a;margin:5px 0 7px}
+h2{font-size:15px;letter-spacing:-.01em;color:#263449}
+.muted,.pill{color:#7b8798}
+.stats{gap:14px;margin-bottom:16px}
+.stat{padding:20px 21px;position:relative;overflow:hidden}
+.stat label{font-size:12px;font-weight:650;color:#778499}
+.stat strong{font-size:25px;letter-spacing:-.04em;color:#1d2b40;margin-top:12px}
+.stat:nth-child(1) strong{color:#159574}.stat:nth-child(2) strong{color:#d94b62}
+.cols{gap:16px;margin-bottom:16px}
+.panel{padding:21px}
+.chart{height:245px}
+.progress{height:8px;background:#edf1f6;border-radius:20px}
+.progress span{background:#315efb;border-radius:20px}
+table{min-width:600px}
+th{color:#8793a5;font-size:10px;letter-spacing:.07em}
+th,td{padding:14px 10px;border-bottom:1px solid #edf0f5;font-size:12px}
+tr:last-child td{border-bottom:0}
+input,select,textarea{background:#f9fafc;border:1px solid #e1e6ee;border-radius:10px;padding:12px;color:#1c2a3d;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#8ba5ff;box-shadow:0 0 0 3px #315efb14}
+.dialog{background:#fff;border:1px solid #e6ebf2;box-shadow:0 22px 80px #0e1a2c30}
+#chatlog{background:#f7f9fc;border:1px solid #e9edf3;border-radius:15px;padding:15px;max-height:52vh!important}
+#chatlog .glass{box-shadow:none;border:1px solid #e8edf4;border-radius:14px;background:#fff;padding:14px!important;color:#263449}
+#chatlog .glass:first-child{background:#eef3ff;border-color:#e2eaff}
+#chatinput{min-height:104px;resize:vertical}
+#chatsend{min-width:130px}
+.toast{background:#17243a;color:#fff;border-radius:12px;box-shadow:0 8px 28px #15233b24}
+@media(max-width:800px){
+ body{background:#f4f6fa}
+ .app{padding:calc(12px + env(safe-area-inset-top)) 14px calc(94px + env(safe-area-inset-bottom))}
+ .top{background:rgba(244,246,250,.94);border-bottom:1px solid #e5eaf1;margin:-2px -14px 18px;padding:10px 14px}
+ .topright{grid-template-columns:36px minmax(0,1fr) 36px auto}
+ .topright #month{min-width:0;color:#263449}
+ .mobile{background:rgba(255,255,255,.96);border-top:1px solid #e6eaf0;box-shadow:0 -5px 20px #17243a0a}
+ .mobile button{color:#8490a2;font-weight:600}
+ .mobile button.active{color:#315efb;background:#eef2ff}
+ .stats{gap:10px}.stat{padding:15px;border-radius:15px}.stat strong{font-size:clamp(18px,5vw,23px)}
+ .panel{padding:16px;border-radius:16px}
+ h1{font-size:27px}
+ #chatlog{max-height:48vh!important}
+}
+@media(max-width:420px){.app{padding-left:11px;padding-right:11px}.top{margin-left:-11px;margin-right:-11px;padding-left:11px;padding-right:11px}.stat strong{font-size:18px}}
+
 </style></head><body><div class="app">
 <header class="top"><div class="brand">NOVA<i>.</i> BUDGET</div><div class="topright month"><button id="prev">‹</button><b id="month"></b><button id="next">›</button><button class="btn primary" id="new">＋ Buchung</button></div></header>
 <div class="layout"><aside class="side glass" id="side"><button class="active" data-page="home">◫ Übersicht</button><button data-page="tx">↕ Transaktionen</button><button data-page="budget">◉ Budgets</button><button data-page="assistant">✦ KI-Assistent</button><button data-page="settings">⚙ Einstellungen</button></aside><main>
-<section class="page active" id="home"><div class="head"><div class="eyebrow">Persönlicher Finanzüberblick</div><h1>Deine Finanzen. Klar im Blick.</h1><span class="muted">Automatisch lokal gespeichert · Standardwährung CHF</span></div>
+<section class="page active" id="home"><div class="head"><div class="eyebrow">FINANZÜBERSICHT</div><h1>Guten Überblick behalten.</h1><span class="muted">Deine persönliche Finanzzentrale · Daten werden lokal gespeichert</span></div>
 <div class="stats"><div class="glass stat"><label>Einnahmen</label><strong class="green" id="income">CHF 0.00</strong></div><div class="glass stat"><label>Ausgaben</label><strong class="red" id="expense">CHF 0.00</strong></div><div class="glass stat"><label>Bilanz</label><strong id="balance">CHF 0.00</strong></div><div class="glass stat"><label>Budget übrig</label><strong id="left">CHF 0.00</strong></div></div>
 <div class="cols"><div class="glass panel"><h2>Ausgaben nach Kategorie</h2><canvas class="chart" id="pie"></canvas><div class="legend" id="legend"></div></div><div class="glass panel"><h2>Budgetverbrauch</h2><div id="progress"></div><p class="pill">Budgets werden je Kalendermonat separat geführt.</p></div></div>
 <div class="glass panel"><h2>Letzte Transaktionen</h2><div class="tablewrap" id="recent"></div></div></section>
 <section class="page" id="tx"><div class="head"><div class="eyebrow">Buchungen</div><h1>Transaktionen</h1></div><div class="glass panel"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px"><h2>Alle Buchungen</h2><button class="btn" id="csv">CSV exportieren</button></div><div class="tablewrap" id="all"></div></div></section>
 <section class="page" id="budget"><div class="head"><div class="eyebrow">Planung</div><h1>Monatsbudgets</h1><button class="btn primary" id="setbudget">＋ Budget setzen</button></div><div class="glass panel"><div id="budgets"></div></div><div class="glass panel" style="margin-top:14px"><h2>Kategorien</h2><div id="cats"></div><button class="btn" id="addcat">＋ Kategorie erstellen</button></div></section>
-<section class="page" id="assistant"><div class="head"><div class="eyebrow">KI-Finanzassistent</div><h1>Frag NOVA.</h1><span class="muted">Deine Zahlen werden ausgewertet. Keine Anlage- oder Steuerberatung.</span></div><div class="glass panel"><div id="chatlog" style="display:grid;gap:12px;min-height:180px;max-height:48vh;overflow:auto;margin-bottom:14px"><div class="glass" style="padding:13px">Hallo! Ich kann deine Einnahmen, Ausgaben, Budgets und Sparziele analysieren. Was möchtest du wissen?</div></div><form id="chatform"><div class="field"><label>Deine Frage</label><textarea id="chatinput" rows="3" maxlength="1200" required placeholder="Zum Beispiel: Wo kann ich monatlich am meisten sparen?"></textarea></div><button class="btn primary" id="chatsend" type="submit">KI fragen</button></form><p class="pill" style="margin-top:12px">Beim Senden werden deine Frage und die für die Analyse benötigten Finanzdaten an Cloudflare Workers AI übertragen. Verwende keine vertraulichen Angaben in Beschreibungen.</p></div></section><section class="page" id="settings"><div class="head"><div class="eyebrow">Personalisieren</div><h1>Einstellungen</h1></div><div class="glass panel"><div class="field"><label>Anzeigewährung</label><select id="currency"><option>CHF</option><option>EUR</option><option>USD</option><option>GBP</option></select><small class="muted">Die Währungsänderung passt nur die Anzeige an. Es findet keine Umrechnung statt.</small></div><button class="btn" id="backup">Backup herunterladen</button> <label class="btn">Backup importieren<input type="file" id="restore" accept="application/json" hidden></label><p class="muted">Daten bleiben im Browser dieses Geräts. Für Cloud-Synchronisierung, Bankanbindung, echte Verschlüsselung und KI-Modelle ist ein Backend nötig.</p><button class="btn" id="clear">Alle Daten löschen</button></div></section>
+<section class="page" id="assistant"><div class="head"><div class="eyebrow">NOVA INTELLIGENCE</div><h1>Dein Finanzassistent.</h1><span class="muted">Deine Zahlen werden ausgewertet. Keine Anlage- oder Steuerberatung.</span></div><div class="glass panel"><div id="chatlog" style="display:grid;gap:12px;min-height:180px;max-height:48vh;overflow:auto;margin-bottom:14px"><div class="glass" style="padding:13px">Hallo! Ich kann deine Einnahmen, Ausgaben, Budgets und Sparziele analysieren. Was möchtest du wissen?</div></div><form id="chatform"><div class="field"><label>Deine Frage</label><textarea id="chatinput" rows="3" maxlength="1200" required placeholder="Zum Beispiel: Wo kann ich monatlich am meisten sparen?"></textarea></div><button class="btn primary" id="chatsend" type="submit">KI fragen</button></form><p class="pill" style="margin-top:12px">Beim Senden werden deine Frage und die für die Analyse benötigten Finanzdaten an Cloudflare Workers AI übertragen. Verwende keine vertraulichen Angaben in Beschreibungen.</p></div></section><section class="page" id="settings"><div class="head"><div class="eyebrow">Personalisieren</div><h1>Einstellungen</h1></div><div class="glass panel"><div class="field"><label>Anzeigewährung</label><select id="currency"><option>CHF</option><option>EUR</option><option>USD</option><option>GBP</option></select><small class="muted">Die Währungsänderung passt nur die Anzeige an. Es findet keine Umrechnung statt.</small></div><button class="btn" id="backup">Backup herunterladen</button> <label class="btn">Backup importieren<input type="file" id="restore" accept="application/json" hidden></label><p class="muted">Daten bleiben im Browser dieses Geräts. Für Cloud-Synchronisierung, Bankanbindung, echte Verschlüsselung und KI-Modelle ist ein Backend nötig.</p><button class="btn" id="clear">Alle Daten löschen</button></div></section>
 </main></div><nav class="mobile" id="mobile"><button class="active" data-page="home">◫<br>Start</button><button data-page="tx">↕<br>Buchungen</button><button data-page="budget">◉<br>Budget</button><button data-page="assistant">✦<br>KI</button><button data-page="settings">⚙<br>Mehr</button></nav></div>
 <div class="modal" id="modal"><div class="dialog"><div class="dialogtop"><h2 id="modalTitle">Transaktion</h2><button id="close">×</button></div><form id="form"><input id="id" type="hidden"><div class="formgrid"><div class="field"><label>Art</label><select id="type"><option value="expense">Ausgabe</option><option value="income">Einnahme</option></select></div><div class="field"><label>Betrag</label><input id="amount" type="number" min=".01" step=".01" required></div><div class="field"><label>Datum</label><input id="date" type="date" required></div><div class="field"><label>Kategorie</label><select id="category"></select></div><div class="field" style="grid-column:1/-1"><label>Beschreibung</label><input id="desc" required maxlength="90" placeholder="z. B. Einkauf"></div></div><p style="text-align:right"><button class="btn primary">Speichern</button></p></form></div></div>
 <div class="modal" id="budgetModal"><div class="dialog"><div class="dialogtop"><h2>Budget setzen</h2><button data-dismiss="budgetModal">×</button></div><form id="bf"><div class="field"><label>Kategorie</label><select id="bc"></select></div><div class="field"><label>Monatslimit</label><input id="ba" type="number" min="0" step=".01" required></div><button class="btn primary">Speichern</button></form></div></div>
@@ -69,7 +133,7 @@ $("clear").onclick=()=>{if(confirm("Alle lokalen App-Daten löschen?")){d=fresh(
 
 const chatHistory=[];
 function chatBubble(role,text){const el=document.createElement("div");el.className="glass";el.style.cssText="padding:13px;white-space:pre-wrap;overflow-wrap:anywhere";el.textContent=(role==="user"?"Du":"NOVA KI")+"\n"+text;$("chatlog").appendChild(el);$("chatlog").scrollTop=$("chatlog").scrollHeight}
-$("chatform").onsubmit=async e=>{e.preventDefault();const question=$("chatinput").value.trim();if(!question)return;chatBubble("user",question);$("chatinput").value="";$("chatsend").disabled=true;$("chatsend").textContent="Denke nach …";const monthKey=key();const monthly=d.tx.filter(t=>t.date.slice(0,7)===monthKey);const payload={question,history:chatHistory.slice(-8),transactions:d.tx.slice(-150).map(t=>({date:t.date,type:t.type,amount:t.amount,category:t.cat,description:t.desc})),budgets:d.budgets,selectedMonth:monthKey,currency:d.currency||"CHF"};try{const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const data=await res.json();if(!res.ok)throw new Error(data.error||"KI-Anfrage fehlgeschlagen");const answer=data.response||"Keine Antwort erhalten.";chatBubble("assistant",answer);chatHistory.push({role:"user",content:question},{role:"assistant",content:answer})}catch(err){chatBubble("assistant","Verbindung fehlgeschlagen: "+err.message+"\nBitte prüfe, ob die neue Cloudflare-Version bereits bereitgestellt wurde und Workers AI aktiviert ist.")}finally{$("chatsend").disabled=false;$("chatsend").textContent="KI fragen"}};
+$("chatform").onsubmit=async e=>{e.preventDefault();const question=$("chatinput").value.trim();if(!question)return;$("chatsend").disabled=true;$("chatsend").textContent="NOVA denkt …";const monthKey=key();const payload={question,history:chatHistory.slice(-8),transactions:d.tx.slice(-150).map(t=>({date:t.date,type:t.type,amount:t.amount,category:t.cat,description:t.desc})),budgets:d.budgets,selectedMonth:monthKey,currency:d.currency||"CHF"};try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),45000);let res;try{res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),signal:controller.signal})}finally{clearTimeout(timeout)}let data;try{data=await res.json()}catch{throw new Error("Der Server hat keine gültige Antwort gesendet (HTTP "+res.status+").")};if(!res.ok)throw new Error((data.error||"Serverfehler")+" (HTTP "+res.status+")");const answer=data.response||"Die KI hat eine leere Antwort zurückgegeben.";chatBubble("user",question);chatBubble("assistant",answer);chatHistory.push({role:"user",content:question},{role:"assistant",content:answer});$("chatinput").value=""}catch(err){chatBubble("assistant",err.name==="AbortError"?"Zeitüberschreitung: Cloudflare hat nach 45 Sekunden nicht geantwortet. Bitte erneut versuchen.":"Fehler: "+err.message+"\nDie Frage blieb im Eingabefeld. Bitte Cloudflare-Deployment und AI-Binding prüfen.")}finally{$("chatsend").disabled=false;$("chatsend").textContent="KI fragen"}};
 
 render();
 </script><script>if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script></body></html>
